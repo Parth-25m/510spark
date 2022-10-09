@@ -17,8 +17,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Download cloc
         run: echo ${{ secrets.GIST_SECRET }}
-      - name: Get the Numbers
-        run: echo "help"
+
+#       - name: Get the Numbers
+#         run: echo "help"
 #      - name: Create Lines-of-Code-Badge
 #         uses: schneegans/dynamic-badges-action@v1.3.0
 #         with:
