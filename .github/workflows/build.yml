@@ -21,8 +21,8 @@ jobs:
       uses: actions/setup-node@v3
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm run coverage_ci && export COV=$(python3 scripts/cov_parser.py ./cov)
-    - run: python3 scripts/cov_parser.py ./cov
+    - run: npm run coverage_ci
+    - run: python3 scripts/cov_parser.py ./cov >> $GITHUB_ENV
     - run: echo $COV && echo "############################"
     - name: create_badge
       uses: schneegans/dynamic-badges-action@v1.4.0    
