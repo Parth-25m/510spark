@@ -19,7 +19,7 @@ jobs:
         run: echo ${{ secrets.GIST_SECRET }}
       - name: Get the Numbers
         run: echo "help"
-      - name: Create Lines-of-Code-Badge
+#      - name: Create Lines-of-Code-Badge
 #         uses: schneegans/dynamic-badges-action@v1.3.0
 #         with:
 #           auth: ${{ secrets.GIST_SECRET }}
