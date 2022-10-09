@@ -24,7 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: <gist-ID>
+        gistID: f14607376f172e8ff8bd099b3c287034
         filename: test.json
         label: Hello
         message: World
