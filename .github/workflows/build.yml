@@ -24,7 +24,7 @@ jobs:
     - run: npm run coverage_ci && export COV=$(python3 scripts/cov_parser.py ./cov)
     - run: echo $COV && echo "############################"
     - name: create_badge
-    - uses: schneegans/dynamic-badges-action@v1.4.0    
+      uses: schneegans/dynamic-badges-action@v1.4.0    
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
