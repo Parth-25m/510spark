@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Badges
 
 on:
@@ -16,16 +13,28 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Download cloc
-        run: echo ${{ secrets.GIST_SECRET }}
-
-#       - name: Get the Numbers
-#         run: echo "help"
-#      - name: Create Lines-of-Code-Badge
+        run: sudo apt-get update -y && sudo apt-get install -y cloc
+      - name: Get the Numbers
+        run: |
+          echo "CODE_LINES=$(   ./cloc.sh --loc)" >> $GITHUB_ENV
+          echo "COMMENT_PERCENTAGE=$(./cloc.sh --percentage)" >> $GITHUB_ENV
+#       - name: Create Lines-of-Code-Badge
 #         uses: schneegans/dynamic-badges-action@v1.3.0
 #         with:
 #           auth: ${{ secrets.GIST_SECRET }}
-#           gistID: f14607376f172e8ff8bd099b3c287034
-#           filename: test.json
-#           label: Hello
-#           message: World
-#           color: orange
+#           gistID: <gist-ID>
+#           filename: loc.json
+#           label: Lines of Code
+#           message: ${{ env.CODE_LINES }}
+#           color: lightgrey
+#       - name: Create Comments-Badge
+#         uses: schneegans/dynamic-badges-action@v1.3.0
+#         with:
+#           auth: ${{ secrets.GIST_SECRET }}
+#           gistID: <gist-ID>
+#           filename: comments.json
+#           label: Comments
+#           message: ${{ env.COMMENT_PERCENTAGE }}%
+#           valColorRange: ${{ env.COMMENT_PERCENTAGE }}
+#           maxColorRange: 50
+#           minColorRange: 0
